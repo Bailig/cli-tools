@@ -1,5 +1,18 @@
 use std::{cmp, collections::HashMap};
 
+// https://leetcode.com/problems/two-sum/description/
+pub fn two_sum(numbers: Vec<i32>, target: i32) -> (usize, usize) {
+    let mut index_map: HashMap<i32, usize> = HashMap::new();
+
+    for (index, number) in numbers.iter().enumerate() {
+        if index_map.contains_key(&number) {
+            return (*index_map.get(&number).unwrap(), index);
+        }
+        index_map.insert(target - number, index);
+    }
+    panic!("should have at least one pair")
+}
+
 // https://leetcode.com/problems/container-with-most-water/
 fn max_water(heights: Vec<u32>) -> u32 {
     let mut start = 0;
@@ -89,11 +102,42 @@ fn length_of_longest_substring(s: String) -> i32 {
     max as i32
 }
 
+// https://leetcode.com/problems/valid-palindrome/
+fn is_palindrome(s: String) -> bool {
+    let mut i = 0;
+    let mut j = s.len() - 1;
+
+    while i < j {
+        let left = &s[i..i + 1];
+        let right = &s[j..j + 1];
+
+        if !left.chars().next().unwrap().is_alphanumeric() {
+            i += 1;
+        } else if !right.chars().next().unwrap().is_alphanumeric() {
+            j -= 1;
+        } else if left.to_lowercase() != right.to_lowercase() {
+            return false;
+        } else {
+            i += 1;
+            j -= 1;
+        }
+    }
+    true
+}
+
 pub fn run() {
-    println!("{}", max_water(vec![1, 8, 6, 2, 5, 4, 8, 3, 7]));
+    println!("two_sum: {:?}", two_sum(vec![2, 7, 11, 15], 17));
+    println!("max_water: {}", max_water(vec![1, 8, 6, 2, 5, 4, 8, 3, 7]));
     println!(
-        "{}",
+        "backspace_compare: {}",
         backspace_compare("ab###acd".to_string(), "ad#cddd###d".to_string())
     );
-    println!("{}", length_of_longest_substring("abba".to_string()))
+    println!(
+        "length_of_longest_substring: {}",
+        length_of_longest_substring("abba".to_string())
+    );
+    println!(
+        "is_palindrome: {}",
+        is_palindrome("A man, a plan, a canal: Panama".to_string())
+    )
 }
