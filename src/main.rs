@@ -29,6 +29,9 @@ fn main() {
 
         println!("\nstruct and traits:");
         exercises::f_structs_traits::run();
+
+        println!("\ncollections and enums:");
+        exercises::g_collections_enums::run();
     } else {
         println!("Unknown argument: {}", arg);
         std::process::exit(1);
