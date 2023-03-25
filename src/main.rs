@@ -26,6 +26,9 @@ fn main() {
 
         println!("\nownership and references:");
         exercises::e_ownership_references::run();
+
+        println!("\nstruct and traits:");
+        exercises::f_structs_traits::run();
     } else {
         println!("Unknown argument: {}", arg);
         std::process::exit(1);
