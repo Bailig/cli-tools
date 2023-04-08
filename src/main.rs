@@ -35,6 +35,8 @@ fn main() {
 
         println!("\n closures and threads:");
         exercises::h_closures_threads::run();
+
+        exercises::i_idiomatic::try_clippy();
     } else {
         println!("Unknown argument: {}", arg);
         std::process::exit(1);

@@ -1,3 +1,14 @@
+// Closure
+// closure borrows values from the current scope
+// that means thte closure can't outlive the scope
+// to make the closure outlive the scope, we can use the move keyword
+// the move keyword forces the closure to take ownership of the values it uses
+
+// Thread
+// thread::spawn() takes a closure and returns a JoinHandle
+// the closure is the main function of the thread
+// the handle.join() method waits for the thread to finish
+
 use crossbeam::channel::{self, Receiver, Sender};
 use std::thread;
 use std::time::Duration;
