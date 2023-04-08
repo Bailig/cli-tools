@@ -32,6 +32,9 @@ fn main() {
 
         println!("\ncollections and enums:");
         exercises::g_collections_enums::run();
+
+        println!("\n closures and threads:");
+        exercises::h_closures_threads::run();
     } else {
         println!("Unknown argument: {}", arg);
         std::process::exit(1);
