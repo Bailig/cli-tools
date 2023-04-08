@@ -64,11 +64,11 @@ enum Shot {
 
 impl Shot {
     fn points(self) -> i32 {
-        return match self {
+        match self {
             Shot::Bullseye => 5,
             Shot::Hit(x) if x < 3.0 => 2,
             Shot::Hit(_) => 1,
             Shot::Miss => 0,
-        };
+        }
     }
 }

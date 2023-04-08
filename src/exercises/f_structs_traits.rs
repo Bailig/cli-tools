@@ -25,13 +25,13 @@ struct Carrot {
 }
 
 impl Bite for Carrot {
-    fn bite(self: &mut Self) {
+    fn bite(&mut self) {
         self.percent_left *= 0.8;
     }
 }
 
 trait Bite {
-    fn bite(self: &mut Self);
+    fn bite(&mut self);
 }
 
 #[derive(Debug)]
@@ -40,7 +40,7 @@ struct Grapes {
 }
 
 impl Bite for Grapes {
-    fn bite(self: &mut Self) {
+    fn bite(&mut self) {
         self.amount_left -= 1;
     }
 }

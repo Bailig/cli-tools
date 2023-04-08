@@ -5,8 +5,8 @@ pub fn two_sum(numbers: Vec<i32>, target: i32) -> (usize, usize) {
     let mut index_map: HashMap<i32, usize> = HashMap::new();
 
     for (index, number) in numbers.iter().enumerate() {
-        if index_map.contains_key(&number) {
-            return (*index_map.get(&number).unwrap(), index);
+        if index_map.contains_key(number) {
+            return (*index_map.get(number).unwrap(), index);
         }
         index_map.insert(target - number, index);
     }

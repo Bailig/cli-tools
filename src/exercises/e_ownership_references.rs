@@ -39,11 +39,11 @@ fn bedazzle(s: &mut String) {
 }
 
 fn eat(s: String) -> bool {
-    s.starts_with("b") && s.contains("a")
+    s.starts_with('b') && s.contains('a')
 }
 
 fn inspect(s: &String) {
-    if s.ends_with("s") {
+    if s.ends_with('s') {
         println!("{} is plural", s);
     } else {
         println!("{} is singular", s);
@@ -51,7 +51,7 @@ fn inspect(s: &String) {
 }
 
 fn change(s: &mut String) {
-    if !s.ends_with("s") {
-        s.push_str("s");
+    if !s.ends_with('s') {
+        s.push('s');
     }
 }

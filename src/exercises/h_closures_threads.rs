@@ -16,7 +16,7 @@ pub fn run() {
     let my_vector = vec![2, 5, 1, 0, 4, 3];
     let handle = thread::spawn(move || expensive_sum(my_vector));
 
-    for letter in vec!["a", "b", "c", "d", "e", "f"] {
+    for letter in &["a", "b", "c", "d", "e", "f"] {
         println!("Main thread: Letter {}", letter);
         pause_ms(200);
     }
@@ -25,8 +25,6 @@ pub fn run() {
     println!("The child thread's expensive sum is {}", sum);
 
     let (tx, rx) = channel::unbounded();
-    // Cloning a channel makes another variable connected to that end of the channel so that you can
-    // send it to another thread.
     let tx2 = tx.clone();
 
     let handle_a = thread::spawn(move || {
@@ -36,7 +34,7 @@ pub fn run() {
         tx2.send("Thread A: 2").unwrap();
     });
 
-    pause_ms(100); // Make sure Thread A has time to get going before we spawn Thread B
+    pause_ms(100);
 
     let handle_b = thread::spawn(move || {
         pause_ms(0);
@@ -62,9 +60,8 @@ pub fn run() {
         }
     });
 
-    let rx3 = rx.clone();
     let handle_b = thread::spawn(move || {
-        for msg in rx3 {
+        for msg in rx {
             println!("Thread B: Received {}", msg);
         }
     });

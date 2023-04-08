@@ -3,7 +3,7 @@ mod exercises;
 
 fn main() {
     let args: Vec<String> = std::env::args().skip(1).collect();
-    if args.len() == 0 {
+    if args.is_empty() {
         println!("Please supply first argument as either 'algorithms' or 'exercises'.");
         std::process::exit(1);
     }

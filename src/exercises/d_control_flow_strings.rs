@@ -19,7 +19,7 @@
 
 pub fn run() {
     let args: Vec<String> = std::env::args().skip(2).collect();
-    if args.len() == 0 {
+    if args.is_empty() {
         println!("Please supply second argument to this program.");
         std::process::exit(-1);
     }
@@ -38,7 +38,7 @@ pub fn run() {
 fn sum() {
     let mut sum = 0;
     for i in 7..=23 {
-        sum = sum + i;
+        sum += i;
     }
     println!("The sum is {}", sum);
 }

@@ -6,6 +6,6 @@ pub fn run() {
     let mut missiles: i32 = STARTING_MISSILES;
     let ready: i32 = READY_AMOUNT;
     println!("Firing {} of my {} missiles...", ready, missiles);
-    missiles = missiles - ready;
+    missiles += ready;
     println!("{} missiles left", missiles);
 }

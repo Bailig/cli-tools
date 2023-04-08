@@ -23,6 +23,8 @@
 // tuple with more than 12 elements will have limited functionality
 // array with more than 32 elements will have limited functionality
 
+use std::f32::consts::PI;
+
 pub fn run() {
     let coords: (f32, f32) = (6.3, 15.0);
     print_difference(coords.0, coords.1);
@@ -33,7 +35,7 @@ pub fn run() {
     let series = [1, 1, 2, 3, 5, 8, 13];
     ding(series[6]);
 
-    let mess = ([3, 2], 3.14, [(false, -3), (true, -100)], 5, "candy");
+    let mess = ([3, 2], PI, [(false, -3), (true, -100)], 5, "candy");
     on_off(mess.2[1].0);
 
     print_distance(coords);
