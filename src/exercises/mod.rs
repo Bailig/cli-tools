@@ -6,4 +6,3 @@ pub mod e_ownership_references;
 pub mod f_structs_traits;
 pub mod g_collections_enums;
 pub mod h_closures_threads;
-pub mod i_idiomatic;
