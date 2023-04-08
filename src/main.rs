@@ -1,10 +1,13 @@
 mod algorithms;
 mod exercises;
+mod exercises_2;
 
 fn main() {
     let args: Vec<String> = std::env::args().skip(1).collect();
     if args.is_empty() {
-        println!("Please supply first argument as either 'algorithms' or 'exercises'.");
+        println!(
+            "Please supply first argument as either 'algorithms', 'exercises', or 'exercises_2'."
+        );
         std::process::exit(1);
     }
     let arg = &args[0];
@@ -35,6 +38,9 @@ fn main() {
 
         println!("\n closures and threads:");
         exercises::h_closures_threads::run();
+    } else if arg == "exercises_2" {
+        println!("\n closures and iterators:");
+        exercises_2::a_closures_iterators::run();
     } else {
         println!("Unknown argument: {}", arg);
         std::process::exit(1);
