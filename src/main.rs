@@ -41,6 +41,9 @@ fn main() {
     } else if arg == "exercises_2" {
         println!("\n closures and iterators:");
         exercises_2::a_closures_iterators::run();
+
+        println!("\n traits:");
+        exercises_2::b_traits::run();
     } else {
         println!("Unknown argument: {}", arg);
         std::process::exit(1);
